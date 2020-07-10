@@ -38,6 +38,7 @@ class EventSourcer():
 
     def bulk_redo(self, steps: int):
         for i in range(steps):
-            if self.pointer == len(self.stack):
-                return
+            if self.pointer == len(self.stack) - 1:
+                self.redo()
+                break
             self.redo()
